@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows10.0.22621</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>preview</LangVersion>
+
+        <PackageId>WindowSill.ClipboardHistory</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Etienne Baudoux</Authors>
+        <Title>Clipboard History</Title>
+        <Description>
+            Never lose what you've copied again. Access your clipboard history instantly and paste any previous item with a single click or keyboard shortcut.
+
+            Supports text, image, URLs, colors, and more.
+        </Description>
+        <PackageIcon>Assets/package.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageProjectUrl>https://TODO</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/WindowSill-app/WindowSill.ClipboardHistory</RepositoryUrl>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="Assets/package.png" Pack="true" PackagePath="\Assets\" />
+        <None Include="LICENSE.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="WindowSill.API" Version="0.0.0.2" />
+    </ItemGroup>
+</Project>
