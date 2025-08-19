@@ -1,12 +1,12 @@
-# WindowSill.WebBrowser
+# WindowSill.ClipboardHistory
 
-This repository contains the source code for the Web Browser extension for WindowSill.
+This repository contains the source code for the Clipboard History extension for WindowSill.
 
 # Build, Run & Debug
 
-To build and run the Web Browser extension, follow these steps:
+To build and run the Clipboard History extension, follow these steps:
 1. Clone the repository.
-1. Open the solution `WindowSill.WebBrowser.slnx` with Visual Studio, Visual Studio Code or Rider.
+1. Open the solution `WindowSill.ClipboardHistory.slnx` with Visual Studio, Visual Studio Code or Rider.
 1. Start Debugging in your IDE of choice.
 
 # Contributing
