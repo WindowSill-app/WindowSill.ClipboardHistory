@@ -24,6 +24,6 @@
         <None Include="LICENSE.md" Pack="true" PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="WindowSill.API" Version="0.0.3" />
+        <PackageReference Include="WindowSill.API" Version="0.0.3.1" />
     </ItemGroup>
 </Project>
