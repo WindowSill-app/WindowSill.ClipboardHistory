@@ -30,11 +30,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore src/WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj
 
-    - name: Build project with MSBuild
-      run: msbuild src/WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj /p:Configuration=Release /p:Platform="Any CPU" /p:RestorePackages=false
-
     - name: Create NuGet package with MSBuild
-      run: msbuild src/WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj /t:Pack /p:Configuration=Release /p:Platform="Any CPU" /p:PackageOutputPath=${{ github.workspace }}/artifacts /p:NoBuild=true
+      run: msbuild src/WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj /p:Configuration=Release /p:Platform="Any CPU" /p:PackageOutputPath=${{ github.workspace }}/artifacts /p:RestorePackages=false
 
     - name: Publish to NuGet.org
       run: dotnet nuget push "${{ github.workspace }}\artifacts\*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
