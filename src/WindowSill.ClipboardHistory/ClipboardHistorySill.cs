@@ -135,15 +135,19 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                         {
                             DetectedClipboardDataType dataType = await DataHelper.GetDetectedClipboardDataTypeAsync(clipboardItem);
 
-                            return dataType switch
+                            (ClipboardHistoryItemViewModelBase viewModel, SillListViewItem view) = dataType switch
                             {
                                 DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                _ => ThrowHelper.ThrowNotSupportedException<SillListViewItem>($"Unsupported clipboard data type: {dataType}"),
+                                _ => ThrowHelper.ThrowNotSupportedException<(ClipboardHistoryItemViewModelBase, SillListViewItem)>($"Unsupported clipboard data type: {dataType}"),
                             };
+
+                            CreateContextMenu(viewModel, view);
+
+                            return view;
                         });
                 });
             }
@@ -164,5 +168,24 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
         }
 
         return Array.Empty<ClipboardHistoryItem>();
+    }
+
+    private static void CreateContextMenu(ClipboardHistoryItemViewModelBase viewModel, SillListViewItem view)
+    {
+        var menuFlyout = new MenuFlyout();
+        menuFlyout.Items.Add(new MenuFlyoutItem
+        {
+            Text = "/WindowSill.ClipboardHistory/Misc/ClearHistory".GetLocalizedString(),
+            Icon = new SymbolIcon(Symbol.Clear),
+            Command = viewModel.ClearCommand
+        });
+        menuFlyout.Items.Add(new MenuFlyoutItem
+        {
+            Text = "/WindowSill.ClipboardHistory/Misc/Delete".GetLocalizedString(),
+            Icon = new SymbolIcon(Symbol.Delete),
+            Command = viewModel.DeleteCommand
+        });
+
+        view.ContextFlyout = menuFlyout;
     }
 }

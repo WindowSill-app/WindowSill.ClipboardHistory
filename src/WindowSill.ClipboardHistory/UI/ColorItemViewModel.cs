@@ -62,9 +62,10 @@ internal sealed partial class ColorItemViewModel : ClipboardHistoryItemViewModel
         InitializeAsync().Forget();
     }
 
-    internal static SillListViewButtonItem CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
     {
-        return new ColorItemViewModel(processInteractionService, item)._view;
+        var viewModel = new ColorItemViewModel(processInteractionService, item);
+        return (viewModel, viewModel._view);
     }
 
     [ObservableProperty]

@@ -20,9 +20,11 @@ internal sealed class HtmlItemViewModel : ClipboardHistoryItemViewModelBase
         InitializeAsync().Forget();
     }
 
-    internal static SillListViewButtonItem CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
     {
-        return new HtmlItemViewModel(processInteractionService, item)._view;
+        var viewModel = new HtmlItemViewModel(processInteractionService, item);
+        return (viewModel, viewModel._view);
     }
 
     private async Task InitializeAsync()
