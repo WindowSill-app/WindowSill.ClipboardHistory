@@ -13,6 +13,8 @@
             Never lose what you've copied again. Access your clipboard history instantly and paste any previous item with a single click or keyboard shortcut.
 
             Supports text, image, URLs, colors, and more.
+
+            New in 0.0.4: you can now delete an item from the history, or clear the history.
         </Description>
         <PackageIcon>Assets/package.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>

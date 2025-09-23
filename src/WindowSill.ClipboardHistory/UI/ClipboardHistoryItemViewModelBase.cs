@@ -62,4 +62,22 @@ internal abstract partial class ClipboardHistoryItemViewModelBase
                 VirtualKey.V);
         });
     }
+
+    [RelayCommand]
+    private async Task DeleteAsync()
+    {
+        await ThreadHelper.RunOnUIThreadAsync(() =>
+        {
+            Clipboard.DeleteItemFromHistory(_item);
+        });
+    }
+
+    [RelayCommand]
+    private async Task ClearAsync()
+    {
+        await ThreadHelper.RunOnUIThreadAsync(() =>
+        {
+            Clipboard.ClearHistory();
+        });
+    }
 }
