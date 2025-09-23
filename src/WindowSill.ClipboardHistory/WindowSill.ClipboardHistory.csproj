@@ -6,7 +6,7 @@
         <LangVersion>preview</LangVersion>
 
         <PackageId>WindowSill.ClipboardHistory</PackageId>
-        <Version>0.0.3</Version>
+        <Version>0.5.0</Version>
         <Authors>Etienne Baudoux</Authors>
         <Title>Clipboard History</Title>
         <Description>
@@ -24,6 +24,6 @@
         <None Include="LICENSE.md" Pack="true" PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="WindowSill.API" Version="0.0.3.1" />
+        <PackageReference Include="WindowSill.API" Version="0.5.0" />
     </ItemGroup>
 </Project>
