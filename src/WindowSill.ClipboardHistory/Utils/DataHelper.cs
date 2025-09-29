@@ -62,6 +62,47 @@ internal static partial class DataHelper
         {
             return DetectedClipboardDataType.File;
         }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Bitmap))
+        {
+            return DetectedClipboardDataType.Image;
+        }
+        else if (item.Content.AvailableFormats.Contains("DeviceIndependentBitmap") ||
+                 item.Content.AvailableFormats.Contains("DeviceIndependentBitmapV5") ||
+                 item.Content.AvailableFormats.Contains("TaggedImageFileFormat") ||
+                 item.Content.AvailableFormats.Contains("EnhancedMetafile"))
+        {
+            return DetectedClipboardDataType.Image;
+        }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Rtf))
+        {
+            return DetectedClipboardDataType.Rtf;
+        }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.ApplicationLink))
+        {
+            return DetectedClipboardDataType.ApplicationLink;
+        }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.UserActivityJsonArray))
+        {
+            return DetectedClipboardDataType.UserActivity;
+        }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.WebLink)
+            || item.Content.AvailableFormats.Contains(StandardDataFormats.Uri))
+        {
+            return DetectedClipboardDataType.Uri;
+        }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Html))
+        {
+            if (item.Content.AvailableFormats.Contains(StandardDataFormats.Text))
+            {
+                string text = await item.Content.GetTextAsync();
+                if (IsUri(text))
+                {
+                    return DetectedClipboardDataType.Uri;
+                }
+            }
+
+            return DetectedClipboardDataType.Html;
+        }
         else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Text))
         {
             string text = await item.Content.GetTextAsync();
@@ -76,16 +117,24 @@ internal static partial class DataHelper
 
             return DetectedClipboardDataType.Text;
         }
-        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Html))
+        else if (item.Content.AvailableFormats.Contains("AnsiText") ||
+                 item.Content.AvailableFormats.Contains("OEMText"))
         {
-            return DetectedClipboardDataType.Html;
-        }
-        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Bitmap))
-        {
-            return DetectedClipboardDataType.Image;
+            return DetectedClipboardDataType.Text;
         }
 
+        // Log unknown formats for debugging and future enhancement
+        LogUnknownFormats(item.Content.AvailableFormats);
         return DetectedClipboardDataType.Unknown;
+    }
+
+    private static void LogUnknownFormats(IReadOnlyList<string> availableFormats)
+    {
+        if (availableFormats.Count > 0)
+        {
+            string formatsString = string.Join(", ", availableFormats);
+            typeof(DataHelper).Log().LogWarning("Unknown clipboard data formats detected: {Formats}", formatsString);
+        }
     }
 
     private static bool IsHexColor(string text)

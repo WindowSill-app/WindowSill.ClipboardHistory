@@ -132,8 +132,17 @@
   <data name="EnableClipboardHistory" xml:space="preserve">
     <value>Enable Windows Clipboard history</value>
   </data>
+  <data name="FileError" xml:space="preserve">
+    <value>Failed to get file info</value>
+  </data>
   <data name="ImageSize" xml:space="preserve">
     <value>{0} x {1} pixels</value>
+  </data>
+  <data name="OpenApplication" xml:space="preserve">
+    <value>Open application</value>
+  </data>
+  <data name="OpenInFileExplorer" xml:space="preserve">
+    <value>Open in File Explorer</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
     <value>Open in web browser</value>

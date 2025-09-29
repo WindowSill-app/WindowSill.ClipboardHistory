@@ -140,8 +140,12 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                                 DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                DetectedClipboardDataType.ApplicationLink => ApplicationLinkItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 _ => ThrowHelper.ThrowNotSupportedException<(ClipboardHistoryItemViewModelBase, SillListViewItem)>($"Unsupported clipboard data type: {dataType}"),
                             };
 
