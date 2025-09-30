@@ -151,14 +151,17 @@ internal sealed partial class UriItemViewModel : ClipboardHistoryItemViewModelBa
                 {
                     // Extract the HTML part
                     int startHtml = html.IndexOf("<html>");
-                    string htmlContent = html.Substring(startHtml);
-
-                    // Use regex to find the text inside the <a> tag
-                    Match match = AHrefTagRegex().Match(htmlContent);
-                    if (match.Success)
+                    if (startHtml >= 0)
                     {
-                        string pageTitle = match.Groups[1].Value.Trim();
-                        PageTitle = pageTitle;
+                        string htmlContent = html.Substring(startHtml);
+
+                        // Use regex to find the text inside the <a> tag
+                        Match match = AHrefTagRegex().Match(htmlContent);
+                        if (match.Success)
+                        {
+                            string pageTitle = match.Groups[1].Value.Trim();
+                            PageTitle = pageTitle;
+                        }
                     }
                 }
             }

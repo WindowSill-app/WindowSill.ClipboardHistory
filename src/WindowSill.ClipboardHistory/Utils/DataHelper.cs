@@ -90,19 +90,6 @@ internal static partial class DataHelper
         {
             return DetectedClipboardDataType.Uri;
         }
-        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Html))
-        {
-            if (item.Content.AvailableFormats.Contains(StandardDataFormats.Text))
-            {
-                string text = await item.Content.GetTextAsync();
-                if (IsUri(text))
-                {
-                    return DetectedClipboardDataType.Uri;
-                }
-            }
-
-            return DetectedClipboardDataType.Html;
-        }
         else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Text))
         {
             string text = await item.Content.GetTextAsync();
@@ -117,6 +104,19 @@ internal static partial class DataHelper
 
             return DetectedClipboardDataType.Text;
         }
+        else if (item.Content.AvailableFormats.Contains(StandardDataFormats.Html))
+        {
+            if (item.Content.AvailableFormats.Contains(StandardDataFormats.Text))
+            {
+                string text = await item.Content.GetTextAsync();
+                if (IsUri(text))
+                {
+                    return DetectedClipboardDataType.Uri;
+                }
+            }
+
+            return DetectedClipboardDataType.Html;
+        }
         else if (item.Content.AvailableFormats.Contains("AnsiText") ||
                  item.Content.AvailableFormats.Contains("OEMText"))
         {
@@ -130,11 +130,8 @@ internal static partial class DataHelper
 
     private static void LogUnknownFormats(IReadOnlyList<string> availableFormats)
     {
-        if (availableFormats.Count > 0)
-        {
-            string formatsString = string.Join(", ", availableFormats);
-            typeof(DataHelper).Log().LogWarning("Unknown clipboard data formats detected: {Formats}", formatsString);
-        }
+        string formatsString = string.Join(", ", availableFormats);
+        typeof(DataHelper).Log().LogWarning("Unknown clipboard data formats detected: {Formats}", formatsString);
     }
 
     private static bool IsHexColor(string text)
