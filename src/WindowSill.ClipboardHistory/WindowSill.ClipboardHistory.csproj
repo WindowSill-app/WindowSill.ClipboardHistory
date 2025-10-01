@@ -6,7 +6,7 @@
         <LangVersion>preview</LangVersion>
 
         <PackageId>WindowSill.ClipboardHistory</PackageId>
-        <Version>0.6.1</Version>
+        <Version>0.6.2</Version>
         <Authors>Etienne Baudoux</Authors>
         <Title>Clipboard History</Title>
         <Description>
@@ -15,6 +15,7 @@
             Supports text, image, URLs, colors, app link, HTML, RTF and more.
 
             What's new:
+            - Added translation for French
             - Fixed and issue where text from a web page would appear with version numbers in the clipboard.
             - You can now delete an item from the history, or clear the history.
         </Description>
