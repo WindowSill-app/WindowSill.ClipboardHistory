@@ -42,6 +42,22 @@ internal sealed class SettingsView : UserControl
                                     .SpinButtonPlacementMode(NumberBoxSpinButtonPlacementMode.Inline)
                             ),
 
+                        new SettingsCard()
+                            .Header("/WindowSill.ClipboardHistory/SettingsUserControl/HidePasswords/Header".GetLocalizedString())
+                            .Description("/WindowSill.ClipboardHistory/SettingsUserControl/HidePasswords/Description".GetLocalizedString())
+                            .HeaderIcon(
+                                new FontIcon()
+                                    .Glyph("\uE9A9")
+                            )
+                            .Content(
+                                new ToggleSwitch()
+                                    .IsOn(
+                                        x => x.Binding(() => viewModel.HidePasswords)
+                                              .TwoWay()
+                                              .UpdateSourceTrigger(UpdateSourceTrigger.PropertyChanged)
+                                    )
+                            ),
+
                         _openWindowsClipboardHistorySettingsCard
                             .Header("/WindowSill.ClipboardHistory/SettingsUserControl/OpenWindowsClipboardHistorySettings".GetLocalizedString())
                             .Visibility(x => x.Binding(() => viewModel.IsClipboardHistoryEnabled)

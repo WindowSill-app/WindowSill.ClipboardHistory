@@ -20,6 +20,12 @@ internal sealed partial class SettingsViewModel : ObservableObject
         set => _settingsProvider.SetSetting(Settings.MaximumHistoryCount, value);
     }
 
+    public bool HidePasswords
+    {
+        get => _settingsProvider.GetSetting(Settings.HidePasswords);
+        set => _settingsProvider.SetSetting(Settings.HidePasswords, value);
+    }
+
     public bool IsClipboardHistoryEnabled => Clipboard.IsHistoryEnabled();
 
     private void Clipboard_HistoryEnabledChanged(object? sender, object e)

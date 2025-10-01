@@ -123,6 +123,12 @@
   <data name="General" xml:space="preserve">
     <value>Général</value>
   </data>
+  <data name="HidePasswords.Description" xml:space="preserve">
+    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+  </data>
+  <data name="HidePasswords.Header" xml:space="preserve">
+    <value>Masquer les mots de passe</value>
+  </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
     <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
   </data>

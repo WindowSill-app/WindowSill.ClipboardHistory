@@ -92,6 +92,11 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
         {
             UpdateClipboardHistoryAsync().Forget();
         }
+        else if (args.SettingName == Settings.Settings.HidePasswords.Name)
+        {
+            ViewList.Clear();
+            UpdateClipboardHistoryAsync().Forget();
+        }
     }
 
     private void Clipboard_HistoryEnabledChanged(object? sender, object e)
@@ -138,7 +143,7 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                             (ClipboardHistoryItemViewModelBase viewModel, SillListViewItem view) = dataType switch
                             {
                                 DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_settingsProvider, _processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),

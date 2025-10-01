@@ -123,6 +123,12 @@
   <data name="General" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="HidePasswords.Description" xml:space="preserve">
+    <value>Try to detect and hide copied text that look like passwords</value>
+  </data>
+  <data name="HidePasswords.Header" xml:space="preserve">
+    <value>Hide passwords</value>
+  </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
     <value>How many items should be kept in the clipboard history.</value>
   </data>

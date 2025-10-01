@@ -6,18 +6,19 @@
         <LangVersion>preview</LangVersion>
 
         <PackageId>WindowSill.ClipboardHistory</PackageId>
-        <Version>0.6.2</Version>
+        <Version>0.6.3</Version>
         <Authors>Etienne Baudoux</Authors>
         <Title>Clipboard History</Title>
         <Description>
-            Never lose what you've copied again. Access your clipboard history instantly and paste any previous item with a single click or keyboard shortcut.
+          Never lose what you've copied again. Access your clipboard history instantly and paste any previous item with a single click or keyboard shortcut.
 
-            Supports text, image, URLs, colors, app link, HTML, RTF and more.
+          Supports text, image, URLs, colors, app link, HTML, RTF and more.
 
-            What's new:
-            - Added translation for French
-            - Fixed and issue where text from a web page would appear with version numbers in the clipboard.
-            - You can now delete an item from the history, or clear the history.
+          What's new:
+          - Added an option to hide copied text that looks like a password.
+          - Added translation for French
+          - Fixed and issue where text from a web page would appear with version numbers in the clipboard.
+          - You can now delete an item from the history, or clear the history.
         </Description>
         <PackageIcon>Assets/package.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>

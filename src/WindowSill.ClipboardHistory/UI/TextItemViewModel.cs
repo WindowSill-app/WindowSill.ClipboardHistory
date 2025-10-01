@@ -9,11 +9,13 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
 {
     private readonly ILogger _logger;
     private readonly SillListViewButtonItem _view;
+    private readonly ISettingsProvider _settingsProvider;
 
-    private TextItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    private TextItemViewModel(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
         : base(processInteractionService, item)
     {
         _logger = this.Log();
+        _settingsProvider = settingsProvider;
         _view = new SillListViewButtonItem(base.PasteCommand);
         _view.DataContext = this;
 
@@ -21,9 +23,9 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
     }
 
 
-    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
     {
-        var viewModel = new TextItemViewModel(processInteractionService, item);
+        var viewModel = new TextItemViewModel(settingsProvider, processInteractionService, item);
         return (viewModel, viewModel._view);
     }
 
@@ -33,14 +35,23 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
         {
             Guard.IsNotNull(Data);
             string text = await Data.GetTextAsync();
-            _view.Content
-                = text
-                .Substring(0, Math.Min(text.Length, 256))
-                .Trim()
-                .Replace("\r\n", "⏎")
-                .Replace("\n\r", "⏎")
-                .Replace('\r', '⏎')
-                .Replace('\n', '⏎');
+
+            if (_settingsProvider.GetSetting(Settings.Settings.HidePasswords)
+                && IsPassword(text))
+            {
+                _view.Content = new string('•', text.Length);
+            }
+            else
+            {
+                _view.Content
+                    = text
+                    .Substring(0, Math.Min(text.Length, 256))
+                    .Trim()
+                    .Replace("\r\n", "⏎")
+                    .Replace("\n\r", "⏎")
+                    .Replace('\r', '⏎')
+                    .Replace('\n', '⏎');
+            }
 
             _view.PreviewFlyoutContent = text;
         }
@@ -48,5 +59,47 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
         {
             _logger.LogError(ex, $"Failed to initialize {nameof(TextItemViewModel)} control.");
         }
+    }
+
+    private static bool IsPassword(string text)
+    {
+        if (!string.IsNullOrEmpty(text) && text.Length >= 8 && text.Length <= 128)
+        {
+            bool hasUpper = false;
+            bool hasLower = false;
+            bool hasDigit = false;
+            bool hasSpecial = false;
+
+            // Allowed characters
+            string specials = "#?!@$%^&*-";
+
+            foreach (char c in text)
+            {
+                if (char.IsUpper(c))
+                {
+                    hasUpper = true;
+                }
+                else if (char.IsLower(c))
+                {
+                    hasLower = true;
+                }
+                else if (char.IsDigit(c))
+                {
+                    hasDigit = true;
+                }
+                else if (specials.IndexOf(c) >= 0)
+                {
+                    hasSpecial = true;
+                }
+                else
+                {
+                    return false; // invalid character found
+                }
+            }
+
+            return hasUpper && hasLower && hasDigit && hasSpecial;
+        }
+
+        return false;
     }
 }

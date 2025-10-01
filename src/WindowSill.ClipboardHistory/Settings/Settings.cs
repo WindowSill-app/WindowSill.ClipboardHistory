@@ -9,4 +9,10 @@ internal static class Settings
     /// </summary>
     internal static readonly SettingDefinition<int> MaximumHistoryCount
         = new(25, typeof(Settings).Assembly);
+
+    /// <summary>
+    /// Whether passwords should be hidden
+    /// </summary>
+    internal static readonly SettingDefinition<bool> HidePasswords
+        = new(true, typeof(Settings).Assembly);
 }
