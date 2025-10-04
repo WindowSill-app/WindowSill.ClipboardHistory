@@ -121,30 +121,30 @@
     <value>清除所有历史</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>删除</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Clipboard History</value>
+    <value>剪贴板历史</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>The clipboard is empty.</value>
+    <value>剪贴板为空。</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>启用 Windows 剪贴板历史记录</value>
   </data>
   <data name="FileError" xml:space="preserve">
-    <value>Failed to get file info</value>
+    <value>获取文件信息失败</value>
   </data>
   <data name="ImageSize" xml:space="preserve">
-    <value>{0} x {1} pixels</value>
+    <value>{0} x {1} 像素</value>
   </data>
   <data name="OpenApplication" xml:space="preserve">
-    <value>Open application</value>
+    <value>打开应用程序</value>
   </data>
   <data name="OpenInFileExplorer" xml:space="preserve">
-    <value>Open in File Explorer</value>
+    <value>在文件资源管理器中打开</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
-    <value>Open in web browser</value>
+    <value>在网页浏览器中打开</value>
   </data>
 </root>
