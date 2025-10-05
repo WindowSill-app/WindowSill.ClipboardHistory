@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>Aktivieren Sie die Windows-Zwischenablageverlauf</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>General</value>
+    <value>Allgemein</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Try to detect and hide copied text that look like passwords</value>
+    <value>Versuchen Sie, kopierten Text zu erkennen und auszublenden, der wie Passwörter aussieht</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Hide passwords</value>
+    <value>Passwörter ausblenden</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>How many items should be kept in the clipboard history.</value>
+    <value>Wie viele Elemente sollten im Zwischenablageverlauf aufbewahrt werden.</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Maximum number of items</value>
+    <value>Maximale Anzahl an Elementen</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Open Windows Clipboard history settings</value>
+    <value>Windows-Zwischenablageverlaufseinstellungen öffnen</value>
   </data>
 </root>
