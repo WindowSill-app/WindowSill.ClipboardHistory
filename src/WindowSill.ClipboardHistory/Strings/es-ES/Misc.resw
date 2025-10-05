@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ClearHistory" xml:space="preserve">
-    <value>Clear History</value>
+    <value>Historial limpio</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Eliminar</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Clipboard History</value>
+    <value>Historial del portapapeles</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>The clipboard is empty.</value>
+    <value>El portapapeles está vacío.</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>Habilitar historial del portapapeles de Windows</value>
   </data>
   <data name="FileError" xml:space="preserve">
-    <value>Failed to get file info</value>
+    <value>No se pudo obtener la información del archivo</value>
   </data>
   <data name="ImageSize" xml:space="preserve">
-    <value>{0} x {1} pixels</value>
+    <value>{0} x {1} píxeles</value>
   </data>
   <data name="OpenApplication" xml:space="preserve">
-    <value>Open application</value>
+    <value>Abrir aplicación</value>
   </data>
   <data name="OpenInFileExplorer" xml:space="preserve">
-    <value>Open in File Explorer</value>
+    <value>Abrir en el explorador de archivos</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
-    <value>Open in web browser</value>
+    <value>Abrir en el navegador web</value>
   </data>
 </root>
