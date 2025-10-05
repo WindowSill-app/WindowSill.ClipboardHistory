@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ClearHistory" xml:space="preserve">
-    <value>Clear History</value>
+    <value>履歴をクリア</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>削除</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Clipboard History</value>
+    <value>クリップボードの履歴</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>The clipboard is empty.</value>
+    <value>クリップボードは空です。</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>Windowsクリップボード履歴を有効にする</value>
   </data>
   <data name="FileError" xml:space="preserve">
-    <value>Failed to get file info</value>
+    <value>ファイル情報の取得に失敗しました</value>
   </data>
   <data name="ImageSize" xml:space="preserve">
-    <value>{0} x {1} pixels</value>
+    <value>{0} x {1} ピクセル</value>
   </data>
   <data name="OpenApplication" xml:space="preserve">
-    <value>Open application</value>
+    <value>アプリケーションを開く</value>
   </data>
   <data name="OpenInFileExplorer" xml:space="preserve">
-    <value>Open in File Explorer</value>
+    <value>ファイルエクスプローラーで開く</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
-    <value>Open in web browser</value>
+    <value>Webブラウザで開く</value>
   </data>
 </root>
