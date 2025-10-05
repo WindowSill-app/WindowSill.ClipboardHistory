@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>विंडोज क्लिपबोर्ड इतिहास सक्षम करें</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Général</value>
+    <value>सामान्य</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+    <value>पासवर्ड जैसी दिखने वाले कॉपी किए गए टेक्स्ट का पता लगाने और छिपाने का प्रयास करें</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+    <value>पासवर्ड छिपाएँ</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+    <value>क्लिपबोर्ड इतिहास में कित आइटम रखना चाहिए।</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
+    <value>अधिकतम आइटम संख्या</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+    <value>विंडोज क्लिपबोर्ड इतिहास सेटिंग्स खोलें</value>
   </data>
 </root>

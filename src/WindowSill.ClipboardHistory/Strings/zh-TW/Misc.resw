@@ -117,25 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClearHistory" xml:space="preserve">
+    <value>清除歷史紀錄</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>剪貼簿歷史紀錄</value>
+  </data>
+  <data name="EmptyClipboard" xml:space="preserve">
+    <value>剪貼簿是空的。</value>
+  </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>啟用 Windows 剪貼簿歷史紀錄</value>
   </data>
-  <data name="General" xml:space="preserve">
-    <value>Général</value>
+  <data name="FileError" xml:space="preserve">
+    <value>取得檔案資訊失敗</value>
   </data>
-  <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+  <data name="ImageSize" xml:space="preserve">
+    <value>{0} x {1} 像素</value>
   </data>
-  <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+  <data name="OpenApplication" xml:space="preserve">
+    <value>開啟應用程式</value>
   </data>
-  <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+  <data name="OpenInFileExplorer" xml:space="preserve">
+    <value>在檔案總管中開啟</value>
   </data>
-  <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
-  </data>
-  <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+  <data name="OpenInWebBrowser" xml:space="preserve">
+    <value>在網頁瀏覽器中開啟</value>
   </data>
 </root>

@@ -117,25 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClearHistory" xml:space="preserve">
+    <value>Очистити історію</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Історія буфера обміну</value>
+  </data>
+  <data name="EmptyClipboard" xml:space="preserve">
+    <value>Буфер обміну порожній.</value>
+  </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>Увімкнути історію буфера обміну Windows</value>
   </data>
-  <data name="General" xml:space="preserve">
-    <value>Général</value>
+  <data name="FileError" xml:space="preserve">
+    <value>Не вдалося отримати інформацію про файл</value>
   </data>
-  <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+  <data name="ImageSize" xml:space="preserve">
+    <value>{0} x {1} пікселів</value>
   </data>
-  <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+  <data name="OpenApplication" xml:space="preserve">
+    <value>Відкрити додаток</value>
   </data>
-  <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+  <data name="OpenInFileExplorer" xml:space="preserve">
+    <value>Відкрити у Провіднику файлів</value>
   </data>
-  <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
-  </data>
-  <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+  <data name="OpenInWebBrowser" xml:space="preserve">
+    <value>Відкрити у веб-браузері</value>
   </data>
 </root>

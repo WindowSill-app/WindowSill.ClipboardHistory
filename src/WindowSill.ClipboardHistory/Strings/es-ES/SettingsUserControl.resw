@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>Habilitar el historial del portapapeles de Windows</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Général</value>
+    <value>General</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+    <value>Intentar detectar y ocultar el texto copiado que parece contraseñas</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+    <value>Ocultar contraseñas</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+    <value>¿Cuántos elementos deben mantenerse en el historial del portapapeles?</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
+    <value>Número máximo de elementos</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+    <value>Abrir la configuración del historial del portapapeles de Windows</value>
   </data>
 </root>

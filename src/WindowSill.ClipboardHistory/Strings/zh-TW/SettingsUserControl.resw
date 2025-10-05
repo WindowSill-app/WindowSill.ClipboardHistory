@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>啟用 Windows 剪貼簿歷史記錄</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Général</value>
+    <value>通用</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+    <value>嘗試偵測並隱藏看起來像密碼的複製內容</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+    <value>隱藏密碼</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+    <value>剪貼簿歷史記錄中應保留多少項目。</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
+    <value>最大項目數量</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+    <value>開啟 Windows 剪貼簿歷史記錄設定</value>
   </data>
 </root>

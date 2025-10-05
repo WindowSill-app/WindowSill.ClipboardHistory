@@ -117,25 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClearHistory" xml:space="preserve">
+    <value>इतिहास साफ करें</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>हटाएँ</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>क्लिपबोर्ड इतिहास</value>
+  </data>
+  <data name="EmptyClipboard" xml:space="preserve">
+    <value>क्लिपबोर्ड खाली है।</value>
+  </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>विंडोज क्लिपबोर्ड इतिहास सक्षम करें</value>
   </data>
-  <data name="General" xml:space="preserve">
-    <value>Général</value>
+  <data name="FileError" xml:space="preserve">
+    <value>फ़ाइल जानकारी प्राप्त करने में विफल</value>
   </data>
-  <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+  <data name="ImageSize" xml:space="preserve">
+    <value>{0} x {1} पिक्सेल</value>
   </data>
-  <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+  <data name="OpenApplication" xml:space="preserve">
+    <value>एप्लिकेशन खोलें</value>
   </data>
-  <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+  <data name="OpenInFileExplorer" xml:space="preserve">
+    <value>फ़ाइल एक्सप्लोरर में खोलें</value>
   </data>
-  <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
-  </data>
-  <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+  <data name="OpenInWebBrowser" xml:space="preserve">
+    <value>वेब ब्राउज़र में खोलें</value>
   </data>
 </root>

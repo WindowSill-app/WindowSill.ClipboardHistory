@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Activer l’historique du presse-papiers Windows</value>
+    <value>Bật lịch sử clipboard của Windows</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Général</value>
+    <value>Chung</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Détecter et masquer les textes copiés qui ressemblent à des mots de passe</value>
+    <value>Cố gắng phát hiện và ẩn văn bản đã sao chép trông giống như mật khẩu</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Masquer les mots de passe</value>
+    <value>Ẩn mật khẩu</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Combien d’éléments doivent être conservés dans l’historique du presse-papiers.</value>
+    <value>Bạn muốn giữ bao nhiêu mục trong lịch sử clipboard.</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Nombre maximum d’éléments</value>
+    <value>Số lượng tối đa các mục</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Ouvrir les paramètres de l’historique du presse-papiers Windows</value>
+    <value>Mở cài đặt lịch sử clipboard của Windows</value>
   </data>
 </root>
