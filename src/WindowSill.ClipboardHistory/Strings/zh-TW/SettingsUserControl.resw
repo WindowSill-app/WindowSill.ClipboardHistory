@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>啟用 Windows 剪貼簿歷史記錄</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>General</value>
+    <value>通用</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Try to detect and hide copied text that look like passwords</value>
+    <value>嘗試偵測並隱藏看起來像密碼的複製內容</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Hide passwords</value>
+    <value>隱藏密碼</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>How many items should be kept in the clipboard history.</value>
+    <value>剪貼簿歷史記錄中應保留多少項目。</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Maximum number of items</value>
+    <value>最大項目數量</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Open Windows Clipboard history settings</value>
+    <value>開啟 Windows 剪貼簿歷史記錄設定</value>
   </data>
 </root>
