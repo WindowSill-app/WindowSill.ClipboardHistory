@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ClearHistory" xml:space="preserve">
-    <value>Clear History</value>
+    <value>清除歷史紀錄</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>刪除</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Clipboard History</value>
+    <value>剪貼簿歷史紀錄</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>The clipboard is empty.</value>
+    <value>剪貼簿是空的。</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>啟用 Windows 剪貼簿歷史紀錄</value>
   </data>
   <data name="FileError" xml:space="preserve">
-    <value>Failed to get file info</value>
+    <value>取得檔案資訊失敗</value>
   </data>
   <data name="ImageSize" xml:space="preserve">
-    <value>{0} x {1} pixels</value>
+    <value>{0} x {1} 像素</value>
   </data>
   <data name="OpenApplication" xml:space="preserve">
-    <value>Open application</value>
+    <value>開啟應用程式</value>
   </data>
   <data name="OpenInFileExplorer" xml:space="preserve">
-    <value>Open in File Explorer</value>
+    <value>在檔案總管中開啟</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
-    <value>Open in web browser</value>
+    <value>在網頁瀏覽器中開啟</value>
   </data>
 </root>
