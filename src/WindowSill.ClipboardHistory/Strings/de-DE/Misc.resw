@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ClearHistory" xml:space="preserve">
-    <value>Clear History</value>
+    <value>Verlauf löschen</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Löschen</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Clipboard History</value>
+    <value>Zwischenspeicher Verlauf</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>The clipboard is empty.</value>
+    <value>Der Zwischenspeicher ist leer.</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Enable Windows Clipboard history</value>
+    <value>Den Windows-Zwischenspeicherverlauf aktivieren</value>
   </data>
   <data name="FileError" xml:space="preserve">
-    <value>Failed to get file info</value>
+    <value>Fehler beim Abrufen der Dateiinformationen</value>
   </data>
   <data name="ImageSize" xml:space="preserve">
-    <value>{0} x {1} pixels</value>
+    <value>{0} x {1} Pixel</value>
   </data>
   <data name="OpenApplication" xml:space="preserve">
-    <value>Open application</value>
+    <value>Anwendung öffnen</value>
   </data>
   <data name="OpenInFileExplorer" xml:space="preserve">
-    <value>Open in File Explorer</value>
+    <value>Im Datei-Explorer öffnen</value>
   </data>
   <data name="OpenInWebBrowser" xml:space="preserve">
-    <value>Open in web browser</value>
+    <value>Im Webbrowser öffnen</value>
   </data>
 </root>
