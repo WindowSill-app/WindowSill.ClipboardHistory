@@ -22,7 +22,6 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
         InitializeAsync().Forget();
     }
 
-
     internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
     {
         var viewModel = new TextItemViewModel(settingsProvider, processInteractionService, item);
@@ -34,7 +33,26 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
         try
         {
             Guard.IsNotNull(Data);
-            string text = await Data.GetTextAsync();
+            string? text = null;
+
+            if (Data.AvailableFormats.Contains(StandardDataFormats.Text))
+            {
+                text = await Data.GetTextAsync();
+            }
+            else if (Data.AvailableFormats.Contains("AnsiText"))
+            {
+                text = await Data.GetDataAsync("AnsiText") as string;
+            }
+            else if (Data.AvailableFormats.Contains("OEMText"))
+            {
+                text = await Data.GetDataAsync("OEMText") as string;
+            }
+            else if (Data.AvailableFormats.Contains("TEXT"))
+            {
+                text = await Data.GetDataAsync("TEXT") as string;
+            }
+
+            text ??= string.Empty;
 
             if (_settingsProvider.GetSetting(Settings.Settings.HidePasswords)
                 && IsPassword(text))

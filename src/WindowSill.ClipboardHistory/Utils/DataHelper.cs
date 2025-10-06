@@ -118,7 +118,8 @@ internal static partial class DataHelper
             return DetectedClipboardDataType.Html;
         }
         else if (item.Content.AvailableFormats.Contains("AnsiText") ||
-                 item.Content.AvailableFormats.Contains("OEMText"))
+                 item.Content.AvailableFormats.Contains("OEMText") ||
+                 item.Content.AvailableFormats.Contains("TEXT"))
         {
             return DetectedClipboardDataType.Text;
         }

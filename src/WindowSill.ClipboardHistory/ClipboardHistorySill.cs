@@ -151,7 +151,7 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                                 DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem),
                                 DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                _ => ThrowHelper.ThrowNotSupportedException<(ClipboardHistoryItemViewModelBase, SillListViewItem)>($"Unsupported clipboard data type: {dataType}"),
+                                _ => UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem),
                             };
 
                             CreateContextMenu(viewModel, view);
