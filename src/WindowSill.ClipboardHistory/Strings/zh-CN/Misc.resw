@@ -147,4 +147,7 @@
   <data name="OpenInWebBrowser" xml:space="preserve">
     <value>在网页浏览器中打开</value>
   </data>
+  <data name="UnsupportedFormat" xml:space="preserve">
+    <value>Unsupported Format</value>
+  </data>
 </root>
