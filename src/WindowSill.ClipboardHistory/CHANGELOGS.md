@@ -1,3 +1,7 @@
+# 0.6.5.0
+- Improved password detection.
+- Improved some translation.
+
 # 0.6.4.0
 - Fixed an issue where unsupported clipboard format would crash the app.
 - Added translation for Chinese (Simplified & Traditional), German, Hindi, Japanese, Spanish, Ukrainian and Vietnamese.
