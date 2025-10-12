@@ -147,4 +147,7 @@
   <data name="OpenInWebBrowser" xml:space="preserve">
     <value>Mở trong trình duyệt web</value>
   </data>
+  <data name="UnsupportedFormat" xml:space="preserve">
+    <value>Định dạng tệp này không được hỗ trợ</value>
+  </data>
 </root>

@@ -1,7 +1,11 @@
 # 0.7.0.0
-- Improved translation.
+- Improved some translation.
 - Fixed the layout of the "Enable clipboard history" message in Small and Medium mode.
 - Updated dependencies.
+
+# 0.6.5.0
+- Improved password detection.
+- Improved some translation.
 
 # 0.6.4.0
 - Fixed an issue where unsupported clipboard format would crash the app.

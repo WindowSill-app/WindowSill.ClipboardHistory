@@ -89,7 +89,7 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
             bool hasSpecial = false;
 
             // Allowed characters
-            string specials = "#?!@$%^&*-";
+            string specials = "#?!@$%^&*-+";
 
             foreach (char c in text)
             {
