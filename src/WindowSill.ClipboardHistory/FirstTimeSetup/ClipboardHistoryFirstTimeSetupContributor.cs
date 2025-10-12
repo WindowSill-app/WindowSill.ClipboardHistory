@@ -6,7 +6,7 @@ namespace WindowSill.ClipboardHistory.FirstTimeSetup;
 internal sealed partial class ClipboardHistoryFirstTimeSetupContributor : ObservableObject, IFirstTimeSetupContributor
 {
     [ObservableProperty]
-    public partial bool CanContinue { get; set; }
+    public partial bool CanContinue { get; set; } = true;
 
     public FrameworkElement GetView()
     {

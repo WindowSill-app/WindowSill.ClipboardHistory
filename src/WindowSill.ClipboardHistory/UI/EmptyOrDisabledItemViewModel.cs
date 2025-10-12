@@ -9,6 +9,8 @@ namespace WindowSill.ClipboardHistory.UI;
 internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
 {
     private readonly SillView _view;
+    private readonly Grid _rootGrid = new();
+    private readonly HyperlinkButton _enableClipboardHistoryButton = new();
     private readonly TextBlock _emptyClipboardTextBlock = new();
     private readonly SillOrientedStackPanel _clipboardHistoryDisabledStackPanel = new();
 
@@ -19,18 +21,15 @@ internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
                 this,
                 (view, viewModel) => view
                     .Content(
-                        new Grid()
-                            .Margin(x => x.ThemeResource("SillCommandContentMargin"))
+                        _rootGrid
                             .Children(
                                 _clipboardHistoryDisabledStackPanel
                                     .Spacing(8)
                                     .Children(
-                                        new HyperlinkButton()
+                                        _enableClipboardHistoryButton
                                             .HorizontalAlignment(HorizontalAlignment.Stretch)
                                             .VerticalAlignment(VerticalAlignment.Stretch)
                                             .HorizontalContentAlignment(HorizontalAlignment.Center)
-                                            .Padding(x => x.ThemeResource("SillButtonPadding"))
-                                            .FontSize(x => x.ThemeResource("SillFontSize"))
                                             .Command(() => viewModel.OpenWindowsClipboardHistoryCommand)
                                             .Content(
                                                 new TextBlock()
@@ -47,7 +46,6 @@ internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
                                     .TextAlignment(TextAlignment.Center)
                                     .HorizontalAlignment(HorizontalAlignment.Center)
                                     .VerticalAlignment(VerticalAlignment.Center)
-                                    .FontSize(x => x.ThemeResource("SillFontSize"))
                                     .Text("/WindowSill.ClipboardHistory/Misc/EmptyClipboard".GetLocalizedString())
                             )
                     )
@@ -55,6 +53,7 @@ internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
 
         Clipboard.HistoryEnabledChanged += Clipboard_HistoryEnabledChanged;
         UpdateUI();
+        _view.IsSillOrientationOrSizeChanged += OnIsSillOrientationOrSizeChanged;
     }
 
     internal static SillView CreateView()
@@ -86,5 +85,17 @@ internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
             _clipboardHistoryDisabledStackPanel.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             _emptyClipboardTextBlock.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
         }
+    }
+    private void OnIsSillOrientationOrSizeChanged(object? sender, EventArgs e)
+    {
+        _rootGrid
+            .Margin(x => x.ThemeResource("SillCommandContentMargin"));
+
+        _enableClipboardHistoryButton
+            .Padding(x => x.ThemeResource("SillButtonPadding"))
+            .FontSize(x => x.ThemeResource("SillFontSize"));
+
+        _emptyClipboardTextBlock
+            .FontSize(x => x.ThemeResource("SillFontSize"));
     }
 }

@@ -39,6 +39,5 @@ internal sealed class ClipboardHistoryFirstTimeSetupContributorView : UserContro
     private async void OpenWindowsClipboardHistorySettingsCard_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
     {
         await Windows.System.Launcher.LaunchUriAsync(new System.Uri("ms-settings:clipboard"));
-        _contributor.CanContinue = true;
     }
 }
