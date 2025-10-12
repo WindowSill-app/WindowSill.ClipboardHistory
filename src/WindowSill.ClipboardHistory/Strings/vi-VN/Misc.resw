@@ -148,6 +148,6 @@
     <value>Mở trong trình duyệt web</value>
   </data>
   <data name="UnsupportedFormat" xml:space="preserve">
-    <value>Unsupported Format</value>
+    <value>Định dạng tệp này không được hỗ trợ</value>
   </data>
 </root>
