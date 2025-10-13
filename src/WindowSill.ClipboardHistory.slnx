@@ -1,3 +1,8 @@
 <Solution>
-  <Project Path="WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj" />
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="WindowSill.ClipboardHistory/WindowSill.ClipboardHistory.csproj">
+    <Platform Solution="Debug|*" Project="x64" />
+  </Project>
 </Solution>
