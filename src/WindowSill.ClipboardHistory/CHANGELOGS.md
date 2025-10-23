@@ -1,3 +1,6 @@
+# 0.7.1.0
+- Fixed an issue where the app would crash when copying certain data.
+
 # 0.7.0.0
 - Improved some translation.
 - Fixed the layout of the "Enable clipboard history" message in Small and Medium mode.

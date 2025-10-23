@@ -31,13 +31,16 @@ internal sealed class RtfItemViewModel : ClipboardHistoryItemViewModelBase
         try
         {
             Guard.IsNotNull(Data);
-            string rtfContent = await Data.GetRtfAsync();
 
-            // Try to extract plain text from RTF if available
-            string displayText = rtfContent;
+            // Try to use plain text rather than RTF if available
+            string displayText;
             if (Data.Contains(StandardDataFormats.Text))
             {
                 displayText = await Data.GetTextAsync();
+            }
+            else
+            {
+                displayText = await Data.GetRtfAsync();
             }
 
             _view.Content = displayText

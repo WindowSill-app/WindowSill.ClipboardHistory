@@ -31,17 +31,27 @@ internal sealed class HtmlItemViewModel : ClipboardHistoryItemViewModelBase
         try
         {
             Guard.IsNotNull(Data);
-            string text = await Data.GetHtmlFormatAsync();
-            _view.Content
-                = text
-                .Substring(0, Math.Min(text.Length, 256))
+
+            // Try to use plain text rather than HTML if available
+            string displayText;
+            if (Data.Contains(StandardDataFormats.Text))
+            {
+                displayText = await Data.GetTextAsync();
+            }
+            else
+            {
+                displayText = await Data.GetHtmlFormatAsync();
+            }
+
+            _view.Content = displayText
+                .Substring(0, Math.Min(displayText.Length, 256))
                 .Trim()
                 .Replace("\r\n", "⏎")
                 .Replace("\n\r", "⏎")
                 .Replace('\r', '⏎')
                 .Replace('\n', '⏎');
 
-            _view.PreviewFlyoutContent = text;
+            _view.PreviewFlyoutContent = displayText;
         }
         catch (Exception ex)
         {

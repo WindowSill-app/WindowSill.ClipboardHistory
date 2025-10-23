@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using CommunityToolkit.Diagnostics;
+using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Windows.ApplicationModel.DataTransfer;
 using WindowSill.API;
@@ -17,6 +17,7 @@ namespace WindowSill.ClipboardHistory;
 public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTimeSetup, ISillListView
 {
     private readonly DisposableSemaphore _semaphore = new();
+    private readonly ILogger _logger;
     private readonly ISettingsProvider _settingsProvider;
     private readonly IProcessInteractionService _processInteractionService;
     private readonly IPluginInfo _pluginInfo;
@@ -27,6 +28,7 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
         ISettingsProvider settingsProvider,
         IPluginInfo pluginInfo)
     {
+        _logger = this.Log();
         _processInteractionService = processInteractionService;
         _pluginInfo = pluginInfo;
         _settingsProvider = settingsProvider;
@@ -138,21 +140,32 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                         },
                         async (clipboardItem) =>
                         {
-                            DetectedClipboardDataType dataType = await DataHelper.GetDetectedClipboardDataTypeAsync(clipboardItem);
+                            ClipboardHistoryItemViewModelBase viewModel;
+                            SillListViewItem view;
 
-                            (ClipboardHistoryItemViewModelBase viewModel, SillListViewItem view) = dataType switch
+                            try
                             {
-                                DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_settingsProvider, _processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.ApplicationLink => ApplicationLinkItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                _ => UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                            };
+                                DetectedClipboardDataType dataType = await DataHelper.GetDetectedClipboardDataTypeAsync(clipboardItem);
+
+                                (viewModel, view) = dataType switch
+                                {
+                                    DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_settingsProvider, _processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.ApplicationLink => ApplicationLinkItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    _ => UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                };
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogError(ex, "Failed to create a view and viewmodel for a clipboard item.");
+                                (viewModel, view) = UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem);
+                            }
 
                             CreateContextMenu(viewModel, view);
 
@@ -165,15 +178,22 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
 
     private async Task<IReadOnlyList<ClipboardHistoryItem>> GetClipboardHistoryItemsAsync()
     {
-        if (Clipboard.IsHistoryEnabled())
+        try
         {
-            ClipboardHistoryItemsResult clipboardHistory = await Clipboard.GetHistoryItemsAsync();
-            if (clipboardHistory.Status == ClipboardHistoryItemsResultStatus.Success)
+            if (Clipboard.IsHistoryEnabled())
             {
-                return clipboardHistory.Items
-                    .Take(_settingsProvider.GetSetting(Settings.Settings.MaximumHistoryCount))
-                    .ToList();
+                ClipboardHistoryItemsResult clipboardHistory = await Clipboard.GetHistoryItemsAsync();
+                if (clipboardHistory.Status == ClipboardHistoryItemsResultStatus.Success)
+                {
+                    return clipboardHistory.Items
+                        .Take(_settingsProvider.GetSetting(Settings.Settings.MaximumHistoryCount))
+                        .ToList();
+                }
             }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to get clipboard history items.");
         }
 
         return Array.Empty<ClipboardHistoryItem>();

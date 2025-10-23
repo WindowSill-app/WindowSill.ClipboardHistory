@@ -129,15 +129,44 @@ internal static partial class DataHelper
         return DetectedClipboardDataType.Unknown;
     }
 
-    private static void LogUnknownFormats(IReadOnlyList<string> availableFormats)
-    {
-        string formatsString = string.Join(", ", availableFormats);
-        typeof(DataHelper).Log().LogWarning("Unknown clipboard data formats detected: {Formats}", formatsString);
-    }
-
     private static bool IsHexColor(string text)
     {
-        return HexColorRegex().IsMatch(text);
+        return IsValidHexColor(text);
+    }
+
+    private static bool IsValidHexColor(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text) || text.Length > 20)
+        {
+            return false;
+        }
+
+        // Remove optional '#' prefix
+        string hex = text.StartsWith('#') ? text[1..] : text;
+
+        // Check valid lengths (3, 6, or 8 characters)
+        if (hex.Length != 3 && hex.Length != 6 && hex.Length != 8)
+        {
+            return false;
+        }
+
+        // Check if all characters are valid hex digits
+        foreach (char c in hex)
+        {
+            if (!IsHexDigit(c))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static bool IsHexDigit(char c)
+    {
+        return (c >= '0' && c <= '9') ||
+           (c >= 'A' && c <= 'F') ||
+           (c >= 'a' && c <= 'f');
     }
 
     private static bool IsUri(string text)
@@ -150,6 +179,9 @@ internal static partial class DataHelper
             || uriResult.Scheme == Uri.UriSchemeMailto);
     }
 
-    [GeneratedRegex(@"^(#)?([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", RegexOptions.Compiled, 250)]
-    private static partial Regex HexColorRegex();
+    private static void LogUnknownFormats(IReadOnlyList<string> availableFormats)
+    {
+        string formatsString = string.Join(", ", availableFormats);
+        typeof(DataHelper).Log().LogWarning("Unknown clipboard data formats detected: {Formats}", formatsString);
+    }
 }
