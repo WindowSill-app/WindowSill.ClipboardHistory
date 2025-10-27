@@ -148,6 +148,6 @@
     <value>在網頁瀏覽器中開啟</value>
   </data>
   <data name="UnsupportedFormat" xml:space="preserve">
-    <value>Unsupported Format</value>
+    <value>不支援的格式</value>
   </data>
 </root>
