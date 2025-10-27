@@ -148,6 +148,6 @@
     <value>Webブラウザで開く</value>
   </data>
   <data name="UnsupportedFormat" xml:space="preserve">
-    <value>Unsupported Format</value>
+    <value>サポートされていない形式</value>
   </data>
 </root>
