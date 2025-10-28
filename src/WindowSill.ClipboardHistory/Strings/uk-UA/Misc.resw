@@ -148,6 +148,6 @@
     <value>Відкрити у веб-браузері</value>
   </data>
   <data name="UnsupportedFormat" xml:space="preserve">
-    <value>Unsupported Format</value>
+    <value>Несумісний формат</value>
   </data>
 </root>

@@ -148,6 +148,6 @@
     <value>Ouvrir dans le navigateur web</value>
   </data>
   <data name="UnsupportedFormat" xml:space="preserve">
-    <value>Unsupported Format</value>
+    <value>Format non pris en charge</value>
   </data>
 </root>
