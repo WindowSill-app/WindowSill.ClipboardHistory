@@ -1,3 +1,6 @@
+# 0.7.2.0
+- Improved various translations
+
 # 0.7.1.0
 - Fixed an issue where the app would crash when copying certain data.
 
