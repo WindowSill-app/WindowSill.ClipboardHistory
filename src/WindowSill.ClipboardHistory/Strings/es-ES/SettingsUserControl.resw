@@ -124,13 +124,13 @@
     <value>General</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Intentar detectar y ocultar el texto copiado que parece contraseñas</value>
+    <value>Intentar detectar y ocultar el texto copiado que parece una contraseña</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
     <value>Ocultar contraseñas</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>¿Cuántos elementos deben mantenerse en el historial del portapapeles?</value>
+    <value>Cuantos elementos deben mantenerse en el historial del portapapeles.</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
     <value>Número máximo de elementos</value>
