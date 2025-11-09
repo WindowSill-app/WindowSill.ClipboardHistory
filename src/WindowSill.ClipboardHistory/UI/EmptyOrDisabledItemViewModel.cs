@@ -85,6 +85,8 @@ internal sealed partial class EmptyOrDisabledItemViewModel : ObservableObject
             _clipboardHistoryDisabledStackPanel.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             _emptyClipboardTextBlock.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
         }
+
+        OnIsSillOrientationOrSizeChanged(null, EventArgs.Empty);
     }
     private void OnIsSillOrientationOrSizeChanged(object? sender, EventArgs e)
     {
