@@ -1,3 +1,6 @@
+# 0.7.4.0
+- Improved Spanish translation.
+
 # 0.7.3.0
 - Fixed an issue where the text indicated an empty or disabled clipboard had an inaccurate size.
 
