@@ -120,6 +120,12 @@
   <data name="ClearHistory" xml:space="preserve">
     <value>Borrar historial</value>
   </data>
+  <data name="AddToFavorites" xml:space="preserve">
+    <value>Añadir a favoritos</value>
+  </data>
+  <data name="RemoveFromFavorites" xml:space="preserve">
+    <value>Quitar de favoritos</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Eliminar</value>
   </data>

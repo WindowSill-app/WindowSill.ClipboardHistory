@@ -120,6 +120,12 @@
   <data name="ClearHistory" xml:space="preserve">
     <value>Lịch sử Xóa</value>
   </data>
+  <data name="AddToFavorites" xml:space="preserve">
+    <value>Thêm vào mục yêu thích</value>
+  </data>
+  <data name="RemoveFromFavorites" xml:space="preserve">
+    <value>Xóa khỏi mục yêu thích</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
   </data>

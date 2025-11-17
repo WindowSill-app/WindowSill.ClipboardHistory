@@ -120,6 +120,12 @@
   <data name="ClearHistory" xml:space="preserve">
     <value>履歴をクリア</value>
   </data>
+  <data name="AddToFavorites" xml:space="preserve">
+    <value>お気に入りに追加</value>
+  </data>
+  <data name="RemoveFromFavorites" xml:space="preserve">
+    <value>お気に入りから削除</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>削除</value>
   </data>
