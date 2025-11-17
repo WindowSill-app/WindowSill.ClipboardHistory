@@ -21,6 +21,7 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
     private readonly ISettingsProvider _settingsProvider;
     private readonly IProcessInteractionService _processInteractionService;
     private readonly IPluginInfo _pluginInfo;
+    private readonly FavoritesService _favoritesService;
 
     [ImportingConstructor]
     internal ClipboardHistorySill(
@@ -32,6 +33,7 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
         _processInteractionService = processInteractionService;
         _pluginInfo = pluginInfo;
         _settingsProvider = settingsProvider;
+        _favoritesService = new FavoritesService(_settingsProvider);
         _settingsProvider.SettingChanged += SettingsProvider_SettingChanged;
         Clipboard.ContentChanged += Clipboard_ContentChanged;
         Clipboard.HistoryChanged += Clipboard_HistoryChanged;
@@ -149,22 +151,22 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
 
                                 (viewModel, view) = dataType switch
                                 {
-                                    DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_settingsProvider, _processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.ApplicationLink => ApplicationLinkItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem),
-                                    _ => UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem),
+                                    DetectedClipboardDataType.Image => ImageItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.Text => TextItemViewModel.CreateView(_settingsProvider, _processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.Html => HtmlItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.Rtf => RtfItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.Uri => UriItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.ApplicationLink => ApplicationLinkItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.Color => ColorItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.UserActivity => UserActivityItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    DetectedClipboardDataType.File => FileItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
+                                    _ => UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService),
                                 };
                             }
                             catch (Exception ex)
                             {
                                 _logger.LogError(ex, "Failed to create a view and viewmodel for a clipboard item.");
-                                (viewModel, view) = UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem);
+                                (viewModel, view) = UnknownItemViewModel.CreateView(_processInteractionService, clipboardItem, _favoritesService);
                             }
 
                             CreateContextMenu(viewModel, view);
@@ -185,9 +187,29 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
                 ClipboardHistoryItemsResult clipboardHistory = await Clipboard.GetHistoryItemsAsync();
                 if (clipboardHistory.Status == ClipboardHistoryItemsResultStatus.Success)
                 {
-                    return clipboardHistory.Items
+                    var items = clipboardHistory.Items
                         .Take(_settingsProvider.GetSetting(Settings.Settings.MaximumHistoryCount))
                         .ToList();
+
+                    // Sort items to show favorites first
+                    var sortedItems = new List<ClipboardHistoryItem>();
+                    var nonFavorites = new List<ClipboardHistoryItem>();
+
+                    foreach (var item in items)
+                    {
+                        var contentHash = await FavoritesService.ComputeContentHashAsync(item);
+                        if (contentHash is not null && _favoritesService.IsFavorite(contentHash))
+                        {
+                            sortedItems.Add(item);
+                        }
+                        else
+                        {
+                            nonFavorites.Add(item);
+                        }
+                    }
+
+                    sortedItems.AddRange(nonFavorites);
+                    return sortedItems;
                 }
             }
         }
@@ -202,6 +224,22 @@ public sealed class ClipboardHistorySill : ISillActivatedByDefault, ISillFirstTi
     private static void CreateContextMenu(ClipboardHistoryItemViewModelBase viewModel, SillListViewItem view)
     {
         var menuFlyout = new MenuFlyout();
+        
+        var favoriteItem = new MenuFlyoutItem
+        {
+            Icon = new SymbolIcon(Symbol.Favorite),
+            Command = viewModel.ToggleFavoriteCommand
+        };
+        favoriteItem.SetBinding(MenuFlyoutItem.TextProperty, new Binding
+        {
+            Source = viewModel,
+            Path = new PropertyPath(nameof(viewModel.IsFavorite)),
+            Converter = new FavoriteTextConverter()
+        });
+        menuFlyout.Items.Add(favoriteItem);
+        
+        menuFlyout.Items.Add(new MenuFlyoutSeparator());
+        
         menuFlyout.Items.Add(new MenuFlyoutItem
         {
             Text = "/WindowSill.ClipboardHistory/Misc/ClearHistory".GetLocalizedString(),

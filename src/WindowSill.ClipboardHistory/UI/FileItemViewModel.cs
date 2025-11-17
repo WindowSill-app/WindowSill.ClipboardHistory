@@ -8,6 +8,7 @@ using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.System;
 using WindowSill.API;
+using WindowSill.ClipboardHistory.Utils;
 
 namespace WindowSill.ClipboardHistory.UI;
 
@@ -16,8 +17,8 @@ internal sealed partial class FileItemViewModel : ClipboardHistoryItemViewModelB
     private readonly ILogger _logger;
     private readonly SillListViewButtonItem _view;
 
-    private FileItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
-        : base(processInteractionService, item)
+    private FileItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
+        : base(processInteractionService, item, favoritesService)
     {
         _logger = this.Log();
         _view = new SillListViewButtonItem(base.PasteCommand)
@@ -78,9 +79,9 @@ internal sealed partial class FileItemViewModel : ClipboardHistoryItemViewModelB
         InitializeAsync().Forget();
     }
 
-    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
     {
-        var viewModel = new FileItemViewModel(processInteractionService, item);
+        var viewModel = new FileItemViewModel(processInteractionService, item, favoritesService);
         return (viewModel, viewModel._view);
     }
 

@@ -13,8 +13,8 @@ internal sealed partial class ImageItemViewModel : ClipboardHistoryItemViewModel
     private readonly ILogger _logger;
     private readonly SillListViewButtonItem _view;
 
-    private ImageItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
-        : base(processInteractionService, item)
+    private ImageItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
+        : base(processInteractionService, item, favoritesService)
     {
         _logger = this.Log();
         _view = new SillListViewButtonItem(base.PasteCommand)
@@ -62,9 +62,9 @@ internal sealed partial class ImageItemViewModel : ClipboardHistoryItemViewModel
     }
 
 
-    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
     {
-        var viewModel = new ImageItemViewModel(processInteractionService, item);
+        var viewModel = new ImageItemViewModel(processInteractionService, item, favoritesService);
         return (viewModel, viewModel._view);
     }
 
