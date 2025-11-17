@@ -70,8 +70,8 @@ internal sealed class FavoritesService
                 sb.Append('|');
             }
 
-            // Also include timestamp to ensure uniqueness (items copied at different times are different)
-            sb.Append(item.Timestamp.Ticks);
+            // Don't include timestamp - we want items with the same content to be treated as the same favorite
+            // even if they were copied at different times
 
             string contentString = sb.ToString();
             if (string.IsNullOrEmpty(contentString))
