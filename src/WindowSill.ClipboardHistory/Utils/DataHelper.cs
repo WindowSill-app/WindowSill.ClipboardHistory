@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using CommunityToolkit.WinUI.Helpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml.Media.Imaging;
@@ -27,6 +28,10 @@ internal static partial class DataHelper
             bitmap.DecodePixelType = DecodePixelType.Physical;
             bitmap.DecodePixelWidth = bitmap.PixelWidth;
             return bitmap;
+        }
+        catch (COMException)
+        {
+            return null;
         }
         catch (Exception ex)
         {

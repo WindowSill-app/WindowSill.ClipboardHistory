@@ -1,3 +1,7 @@
+# 0.7.5.0
+- Fixed an internal error preventing to retrieve clipboard item containing images.
+- Updated dependencies.
+
 # 0.7.4.0
 - Improved Spanish translation.
 
