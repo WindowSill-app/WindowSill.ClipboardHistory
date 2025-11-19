@@ -11,8 +11,8 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
     private readonly SillListViewButtonItem _view;
     private readonly ISettingsProvider _settingsProvider;
 
-    private TextItemViewModel(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
-        : base(processInteractionService, item)
+    private TextItemViewModel(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
+        : base(processInteractionService, item, favoritesService)
     {
         _logger = this.Log();
         _settingsProvider = settingsProvider;
@@ -22,9 +22,9 @@ internal sealed class TextItemViewModel : ClipboardHistoryItemViewModelBase
         InitializeAsync().Forget();
     }
 
-    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(ISettingsProvider settingsProvider, IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
     {
-        var viewModel = new TextItemViewModel(settingsProvider, processInteractionService, item);
+        var viewModel = new TextItemViewModel(settingsProvider, processInteractionService, item, favoritesService);
         return (viewModel, viewModel._view);
     }
 

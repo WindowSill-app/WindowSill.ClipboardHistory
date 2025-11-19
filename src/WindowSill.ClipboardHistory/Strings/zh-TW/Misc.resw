@@ -120,6 +120,12 @@
   <data name="ClearHistory" xml:space="preserve">
     <value>清除歷史紀錄</value>
   </data>
+  <data name="AddToFavorites" xml:space="preserve">
+    <value>加入我的最愛</value>
+  </data>
+  <data name="RemoveFromFavorites" xml:space="preserve">
+    <value>從我的最愛移除</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>刪除</value>
   </data>

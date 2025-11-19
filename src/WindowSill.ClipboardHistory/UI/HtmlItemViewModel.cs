@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Windows.ApplicationModel.DataTransfer;
 using WindowSill.API;
+using WindowSill.ClipboardHistory.Utils;
 
 namespace WindowSill.ClipboardHistory.UI;
 
@@ -10,8 +11,8 @@ internal sealed class HtmlItemViewModel : ClipboardHistoryItemViewModelBase
     private readonly ILogger _logger;
     private readonly SillListViewButtonItem _view;
 
-    private HtmlItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
-        : base(processInteractionService, item)
+    private HtmlItemViewModel(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
+        : base(processInteractionService, item, favoritesService)
     {
         _logger = this.Log();
         _view = new SillListViewButtonItem(base.PasteCommand);
@@ -20,9 +21,9 @@ internal sealed class HtmlItemViewModel : ClipboardHistoryItemViewModelBase
         InitializeAsync().Forget();
     }
 
-    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item)
+    internal static (ClipboardHistoryItemViewModelBase, SillListViewItem) CreateView(IProcessInteractionService processInteractionService, ClipboardHistoryItem item, FavoritesService favoritesService)
     {
-        var viewModel = new HtmlItemViewModel(processInteractionService, item);
+        var viewModel = new HtmlItemViewModel(processInteractionService, item, favoritesService);
         return (viewModel, viewModel._view);
     }
 
