@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ClearHistory" xml:space="preserve">
-    <value>Lịch sử Xóa</value>
+    <value>Xóa lịch sử</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Lịch sử clipboard</value>
+    <value>Lịch sử bảng tạm</value>
   </data>
   <data name="EmptyClipboard" xml:space="preserve">
-    <value>Clipboard trống.</value>
+    <value>Bảng tạm đang trống.</value>
   </data>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Bật lịch sử Clipboard Windows</value>
+    <value>Bật lịch sử Bảng tạm của Windows</value>
   </data>
   <data name="FileError" xml:space="preserve">
     <value>Không thể lấy thông tin tập tin</value>
