@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Bật lịch sử clipboard của Windows</value>
+    <value>Bật lịch sử Bảng tạm của Windows</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Chung</value>
@@ -130,12 +130,12 @@
     <value>Ẩn mật khẩu</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Bạn muốn giữ bao nhiêu mục trong lịch sử clipboard.</value>
+    <value>Bạn muốn giữ bao nhiêu mục trong lịch sử bảng tạm.</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
     <value>Số lượng tối đa các mục</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Mở cài đặt lịch sử clipboard của Windows</value>
+    <value>Mở cài đặt lịch sử bảng tạm của Windows</value>
   </data>
 </root>
