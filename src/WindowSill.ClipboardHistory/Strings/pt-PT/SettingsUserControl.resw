@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableClipboardHistory" xml:space="preserve">
-    <value>Bật lịch sử Bảng tạm của Windows</value>
+    <value>Habilitar o histórico da área de transferência do Windows</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Chung</value>
+    <value>Geral</value>
   </data>
   <data name="HidePasswords.Description" xml:space="preserve">
-    <value>Cố gắng phát hiện và ẩn văn bản đã sao chép trông giống như mật khẩu</value>
+    <value>Tentar detectar e esconder textos copiados que pareçam senhas</value>
   </data>
   <data name="HidePasswords.Header" xml:space="preserve">
-    <value>Ẩn mật khẩu</value>
+    <value>Esconder senhas</value>
   </data>
   <data name="MaxItemNumber.Description" xml:space="preserve">
-    <value>Bạn muốn giữ bao nhiêu mục trong lịch sử bảng tạm.</value>
+    <value>Quantos itens devem ser mantidos no histórico da área de transferência.</value>
   </data>
   <data name="MaxItemNumber.Header" xml:space="preserve">
-    <value>Số lượng tối đa các mục</value>
+    <value>Número máximo de itens</value>
   </data>
   <data name="OpenWindowsClipboardHistorySettings" xml:space="preserve">
-    <value>Mở cài đặt lịch sử bảng tạm của Windows</value>
+    <value>Abrir configurações do histórico da área de transferência do Windows</value>
   </data>
 </root>
