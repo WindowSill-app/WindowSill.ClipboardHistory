@@ -121,7 +121,7 @@
     <value>Limpar histórico</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Eliminar</value>
+    <value>Deletar</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
     <value>Histórico da área de transferência</value>
